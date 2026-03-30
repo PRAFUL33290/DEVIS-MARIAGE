@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devis Mariage</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #fdf8f4;
+      color: #3d2b1f;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border: 1px solid #e8d9c8;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(180, 130, 80, 0.12);
+      max-width: 560px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    .card-header {
+      background: linear-gradient(135deg, #c8956c 0%, #e8c49a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 2rem 2rem;
+    }
+
+    .card-header .icon {
+      font-size: 2.4rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    .card-header p {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #c8956c, transparent);
+    }
+
+    /* ── Body ── */
+    .card-body {
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #a07850;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Service rows ── */
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fdf8f4;
+      border: 1px solid #e8d9c8;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .service-item:hover {
+      box-shadow: 0 4px 12px rgba(180, 130, 80, 0.15);
+    }
+
+    .service-name {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #3d2b1f;
+    }
+
+    .service-desc {
+      font-size: 0.8rem;
+      color: #9a7a62;
+      margin-top: 0.15rem;
+      font-style: italic;
+    }
+
+    .service-price {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #c8956c;
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+
+    /* ── Separator ── */
+    .separator {
+      border: none;
+      border-top: 1px dashed #e8d9c8;
+      margin: 1.5rem 0;
+    }
+
+    /* ── Total ── */
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1.25rem;
+      background: linear-gradient(135deg, #c8956c 0%, #e8c49a 100%);
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    .total-label {
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .total-amount {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    /* ── Note ── */
+    .note {
+      font-size: 0.78rem;
+      color: #b09070;
+      text-align: center;
+      margin-top: 1.25rem;
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    .card-footer {
+      text-align: center;
+      padding: 1.25rem 2rem 1.75rem;
+      background: #fdf8f4;
+      border-top: 1px solid #e8d9c8;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, #c8956c 0%, #e8c49a 100%);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- Header -->
+    <div class="card-header">
+      <span class="icon">💍</span>
+      <h1>Devis Mariage</h1>
+      <p>Votre journée mérite le meilleur</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Prestations -->
+    <div class="card-body">
+      <p class="section-title">Nos prestations</p>
+
+      <ul class="service-list">
+
+        <li class="service-item">
+          <div>
+            <div class="service-name">Nettoyage</div>
+            <div class="service-desc">Nettoyage complet de la salle &amp; espaces</div>
+          </div>
+          <div class="service-price">20 €</div>
+        </li>
+
+        <li class="service-item">
+          <div>
+            <div class="service-name">Prestation complète</div>
+            <div class="service-desc">Décoration, installation &amp; coordination</div>
+          </div>
+          <div class="service-price">50 €</div>
+        </li>
+
+      </ul>
+
+      <hr class="separator" />
+
+      <!-- Total -->
+      <div class="total-row">
+        <span class="total-label">Total</span>
+        <span class="total-amount">70 €</span>
+      </div>
+
+      <p class="note">* Tarifs TTC — Devis valable 30 jours</p>
+    </div>
+
+    <!-- Footer / CTA -->
+    <div class="card-footer">
+      <a href="#" class="btn">Demander un devis</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
